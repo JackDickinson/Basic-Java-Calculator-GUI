@@ -38,11 +38,13 @@ public class NumberAdditionUI extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Number Addition"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Java Calculator"));
 
         jLabel1.setText("First Number");
 
@@ -56,7 +58,7 @@ public class NumberAdditionUI extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Add");
+        jButton1.setText("Addition");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -84,6 +86,20 @@ public class NumberAdditionUI extends javax.swing.JFrame {
             }
         });
 
+        jButton6.setText("Divide");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton7.setText("Switch Fields");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -99,28 +115,37 @@ public class NumberAdditionUI extends javax.swing.JFrame {
                     .addComponent(jTextField1)
                     .addComponent(jTextField2)
                     .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(110, 110, 110)
+                .addGap(31, 31, 31)
+                .addComponent(jButton6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(jButton2))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jButton7)))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -135,7 +160,8 @@ public class NumberAdditionUI extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
                             .addComponent(jButton4)
-                            .addComponent(jButton5))
+                            .addComponent(jButton5)
+                            .addComponent(jButton6))
                         .addContainerGap(22, Short.MAX_VALUE))))
         );
 
@@ -226,6 +252,34 @@ public class NumberAdditionUI extends javax.swing.JFrame {
     jTextField3.setText(String.valueOf(result));
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        float num1, num2, result;
+    // We have to parse the text to a type float.
+    num1 = Float.parseFloat(jTextField1.getText());
+    num2 = Float.parseFloat(jTextField2.getText());
+   // Now we can perform the addition.
+    if (num1 == 0) {
+    result = 0;
+    } else {
+    result = num1/num2;
+    }
+    // We will now pass the value of result to jTextField3.
+    // At the same time, we are going to
+    // change the value of result from a float to a string.
+    jTextField3.setText(String.valueOf(result));
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    float tempNum, num1, num2, result;
+    num1 = Float.parseFloat(jTextField1.getText());
+    num2 = Float.parseFloat(jTextField2.getText());  
+    tempNum = num1;
+    num1 = num2;
+    num2 = tempNum;
+    jTextField1.setText(String.valueOf(num1));
+    jTextField2.setText(String.valueOf(num2));
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -267,6 +321,8 @@ public class NumberAdditionUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
